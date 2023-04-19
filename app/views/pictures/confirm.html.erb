@@ -1,0 +1,15 @@
+<h3 class = "container">以下の内容を送信する</h3>
+
+<%= form_with(model: @picture, url: pictures_path, local: true) do |form| %>
+  <%= form.hidden_field :title %>
+  <p>タイトル:<%= @picture.title %></p>
+
+  <%= form.hidden_field :content %>
+  <p>本文:<%= @picture.content %></p>
+
+  <%= image_tag((@picture.image.url), style: 'width: 400px; height: 240px;') if @picture.image && @picture.image.url %>
+  <%= form.hidden_field :image_cache %>
+  
+  <%= form.submit "送信", class: "btn btn-primary" %>
+  <%= form.submit "戻る", name: "back" %>
+<% end %>
