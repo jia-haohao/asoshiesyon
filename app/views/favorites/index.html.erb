@@ -1,0 +1,12 @@
+<h3 class = "container">お気に入りした情報</h3>
+<div class = "row">
+  <div class = "col-2">
+    <% @favorites.each do |favorite| %>
+      <p>名前: <%= favorite.user.name %></p>
+      <p>内容: <%= favorite.content %></p>
+      <p><%= image_tag favorite.image.url, style: "width: 400px; height: 240px" %></p>
+    <% end %>
+  </div>
+</div>
+<%= link_to "戻る", user_path(current_user.id) %>
+

@@ -6,11 +6,13 @@
 
 <% @user.favorite_pictures.each do |picture| %>
 <ul>
-  <li><%= picture.content %></li>
   <li><%= picture.user.name %></li>
-  <li><%= link_to "詳細", picture_path %></li>
+  <li><%= picture.content %></li>
+  <li><%= link_to "お気に入り一覧", favorites_path %></li>
 </ul>
 <% end %>
 
-<%= link_to "プロフィールを編集", edit_user_path %>
+<% if @user.id == @current_user.id %>
+  <%= link_to "編集", edit_user_path(@user.id) %>
+<% end %>
 <%= link_to "写真を投稿", pictures_path %>
