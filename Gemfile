@@ -31,6 +31,8 @@ gem 'rexml'
 
 gem 'rmagick'
 
+gem 'dotenv-rails'
+
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
