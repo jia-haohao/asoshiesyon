@@ -1,5 +1,16 @@
-<h1 class = "container"><%= @user.name %>のページ</h1>
+<h1 class = "container"><%= @user.name %>のプロフィール</h1>
 
+<p><%= image_tag(@user.image.url, style: "width: 300px; height: 280px", class: "user-icon") if @user.image && @user.image_url %></p>
+<p>名前: <%= @user.name %><p>
 <p>メールアドレス: <%= @user.email %></p>
 
-<%= link_to "picture投稿", new_picture_path %>
+<% @user.favorite_pictures.each do |picture| %>
+<ul>
+  <li><%= picture.content %></li>
+  <li><%= picture.user.name %></li>
+  <li><%= link_to "詳細", picture_path %></li>
+</ul>
+<% end %>
+
+<%= link_to "プロフィールを編集", edit_user_path %>
+<%= link_to "写真を投稿", pictures_path %>

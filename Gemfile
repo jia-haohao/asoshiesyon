@@ -36,7 +36,6 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
-  gem 'better_errors'
   gem 'binding_of_caller'
 end
 
@@ -45,6 +44,8 @@ group :development do
   gem 'letter_opener_web'
   gem 'listen', '~> 3.3'
   gem 'spring'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :test do

@@ -1,8 +1,10 @@
 <h2 class = "container">編集する</h2>
 
-<%= render 'form' %>
+<%= render "form" %>
 
-<%= link_to picture_path(picture.id) do %>
+<br>
+
+<%= link_to @picture do %>
   <span class="bi bi-eye-fill"></span><% end %>
 <%= link_to pictures_path do %>
   <span class="bi bi-skip-backward-btn"></span><% end %>

@@ -1,26 +1,32 @@
-<div class = "container">
-  <div class = "row justify-content-center">
-    <div class = "col-8">
-      <h1>画像一覧</h1>
+<h1>画像一覧</h1>
+<article>
+  <div class = "wrapper clearfix">
+    <div class = "container">
       <% @pictures.each do |picture| %>
         <ul class = "menu">
           <li>投稿者: <%= picture.user.name %></li>
           <li>内容: <%= picture.content %></li>
         </ul>
-        <p><%= image_tag picture.image.url, style: 'width: 400px; height: 240px' if picture.image_url %></p>
+        <p><%= image_tag picture.image.url, style: "width: 400px; height: 240px" if picture.image_url %></p>
+
         <ul class = "menu">
           <li><%= link_to picture_path(picture.id) do %>
               <span class="bi bi-eye-fill"></span><% end %>
           </li>
-          <li><%= link_to edit_picture_path(picture.id), data: { confirm: '本当に編集していいですか' } do %>
-              <span class="bi bi-pencil-square"></span><% end %>
-          </li>
-          <li><%= link_to picture_path(picture.id), method: :delete, data: { confirm: '本当に削除していいですか' } do %>
-              <span class="bi bi-trash"></span><% end %>
-          </li>
         </ul>
-      </div>
-    <% end %>
-    <%= link_to '新しい画像を投稿', new_picture_path, class: "btn btn-success" %>
+        
+        <% if picture.user.id == current_user.id %>
+          <ul class = "menu">
+            <li><%= link_to edit_picture_path(picture.id), data: { confirm: "本当に編集していいですか" } do %>
+                <span class="bi bi-pencil-square"></span><% end %>
+            </li>
+            <li><%= link_to picture_path(picture.id), method: :delete, data: { confirm: "本当に削除していいですか" } do %>
+                <span class="bi bi-trash"></span><% end %>
+            </li>
+          </ul>
+        <% end %>
+      <% end %>
+    </div>
+    <%= link_to "新しい画像を投稿", new_picture_path, class: "btn btn-success" %>
   </div>
-</div>
+</article>

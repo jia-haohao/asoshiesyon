@@ -11,16 +11,16 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  def auto
-    manipulate! do|image|
-      image.auto_orient
-    end
-  end
+  # def auto
+  #   manipulate! do|image|
+  #     image.auto_orient
+  #   end
+  # end
 
-  process :auto
+  # process :auto
 
-  version :thumb do
-    process :resize_to_fill => [width, height, gravity = ::Magick::CenterGravity]
-  end
+  # version :thumb do
+  #   process :resize_to_fill => [width, height, gravity = ::Magick::CenterGravity]
+  # end
 
 end

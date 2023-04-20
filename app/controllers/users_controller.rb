@@ -2,10 +2,6 @@ class UsersController < ApplicationController
   skip_before_action :login_required, only: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @users = User.all
-  end
-
   def new
     @user = User.new 
   end
@@ -28,15 +24,15 @@ class UsersController < ApplicationController
 
   def update 
     if @user.update(user_params)
-      redirect_to users_path, notice: "更新しました!"
+      redirect_to user_path(@user.id), notice: "更新しました!"
     else
-      render :new
+      render :edit
     end
   end
 
   def destroy 
     @user.destroy 
-    redirect_to users_path, notice: "削除しました!"
+    redirect_to root_path, notice: "削除しました!"
   end
 
   private 
