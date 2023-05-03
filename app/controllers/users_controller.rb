@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def ensure_current_user
     if @current_user.id != params[:id].to_i
-      redirect_to user_path, notice: "権限がありません"
+      redirect_to user_path(@current_user.id), notice: "権限がありません"
     end
   end
 

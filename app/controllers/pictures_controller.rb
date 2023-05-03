@@ -33,7 +33,7 @@ class PicturesController < ApplicationController
     if @picture.update(picture_params)
       redirect_to pictures_path, notice: "更新しました!"
     else
-      render :new 
+      render :edit
     end
   end
   

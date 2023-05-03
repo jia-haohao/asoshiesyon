@@ -29,11 +29,6 @@
   </div>
   
   <ul class = "menu">
-    <%# <li>
-      <%= link_to @user do %>
-        <%# <span class="bi bi-eye-fill"></span> %>
-      <%# <% end %> 
-    <%# </li> %> 
     <li>
       <%= link_to @user, method: :delete, data: { confirm: '本当に削除していいですか' } do %>
         <span class="bi bi-trash"></span>
